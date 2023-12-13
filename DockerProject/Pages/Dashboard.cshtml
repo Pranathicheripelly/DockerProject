@@ -1,0 +1,20 @@
+﻿@page
+@model DockerProject.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Welcome to your Dashboard</h1>
+<div>
+    <a asp-page="/ViewAccount">
+        <!-- Redirects to ViewAccount page -->
+        <button>View Account</button>
+    </a>
+    <a asp-page="/TransferFunds">
+        <!-- Redirects to TransferFunds page -->
+        <button>Transfer Funds</button>
+    </a>
+</div>
+<form method="post" asp-page-handler="Logout">
+    <button type="submit">Logout</button>
+</form>

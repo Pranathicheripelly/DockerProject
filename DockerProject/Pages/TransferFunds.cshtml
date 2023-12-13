@@ -1,0 +1,43 @@
+﻿@page
+@model DockerProject.Pages.TransferFundsModel
+@{
+
+    ViewData["Title"] = "Transfer Funds";
+}
+
+<h1>Transfer Funds</h1>
+
+<form method="post">
+    <div>
+        <label for="fromAccount">From Account:</label>
+        <select id="fromAccount" asp-for="FromAccountId">
+            <!-- Null check added here -->
+            @if (Model.Accounts != null)
+            {
+                foreach (var account in Model.Accounts)
+                {
+                    <option value="@account.Id">@account.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <div>
+        <label for="toAccount">To Account:</label>
+        <select id="toAccount" asp-for="ToAccountId">
+            <!-- Null check added here -->
+            @if (Model.Accounts != null)
+            {
+                foreach (var account in Model.Accounts)
+                {
+                    <option value="@account.Id">@account.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <div>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" asp-for="TransferAmount">
+    </div>
+    <button type="submit">Transfer</button>
+</form>
+   
